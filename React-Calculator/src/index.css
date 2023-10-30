@@ -1,0 +1,170 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+body {
+  background: linear-gradient(
+    to right,
+    #00acfb 0%,
+    22.188138961791992%,
+    #00d3b4 44.376277923583984%,
+    72.18813896179199%,
+    #01fa72 100%
+  );
+  min-height: 100vh;
+}
+
+.value {
+  color: inherit;
+  font-size: x-large;
+  background: transparent;
+  border: none;
+  /* margin: 15px; */
+  padding: 0;
+}
+
+.main-div {
+  width: 280px;
+  background-color: #172d67;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+  /* padding: 20px; */
+  border-radius: 5%;
+}
+
+.first-div {
+  background-color: #172d67;
+  border-radius: 15px 15px 0px 0px;
+}
+
+.second-div {
+  background-color: #070b26;
+  border-radius: 0px 0px 15px 15px;
+}
+
+.values-div {
+  display: grid;
+  grid-template-columns: repeat(4, 70px);
+  grid-template-rows: repeat(4, 70px);
+  background: transparent;
+}
+
+.styleForBackSpace {
+  padding: 0;
+  font-size: 20px;
+}
+
+.input-div,
+.history-div {
+  background: transparent;
+  color: inherit;
+  margin: 10px 0px 0px 0px;
+}
+
+.btns:hover {
+  background-color: #ff4343;
+  margin: 5px;
+}
+
+.input-box {
+  font-size: 20px;
+  box-sizing: border-box;
+  width: 100%;
+  font-weight: 500;
+  background: transparent;
+  border: 0px;
+  color: inherit;
+  outline: none;
+}
+
+.clear-btn {
+  color: inherit;
+  width: 100%;
+  background: transparent;
+  border: none;
+  text-align: center;
+  padding: 5px 0px 5px 0px;
+  font-weight: 600;
+}
+
+.clear-btn:hover {
+  background: #faa701;
+}
+
+.history-div {
+  color: gray;
+  text-align: right;
+  margin-top: 0;
+  font-weight: 500;
+  padding-top: 10px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.history-div,
+.input-box {
+  letter-spacing: 1px;
+  text-align: right;
+  padding-right: 20px;
+  height: 60px;
+}
+
+.circle-div {
+  height: 10px;
+  width: 10px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 50%;
+  position: relative;
+  top: 10px;
+  left: 14px;
+}
+
+.img-box {
+  height: 16px !important;
+  width: 17px !important;
+  position: relative;
+  left: 35px;
+  top: -5px;
+  cursor: pointer;
+}
+
+.clear-btns {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  border-bottom: 1px solid white;
+  color: inherit;
+  border-top: 1px solid white;
+  position: relative;
+}
+
+.clear-btns::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: var(--after-bg-color);
+}
+
+button {
+  cursor: pointer;
+}
+
+.theme-div {
+  display: inline-block;
+}

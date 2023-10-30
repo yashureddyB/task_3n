@@ -1,0 +1,80 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+body {
+  text-align: center;
+}
+
+.main-div {
+  margin: 30px;
+  /* line-height: 45px; */
+  width: 470px;
+}
+
+.heading-div {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.lalel-age {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.input-age {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 70%;
+  box-sizing: border-box;
+  height: 30px;
+  border-radius: 5px;
+  border: 2px solid #f3f3f3;
+  cursor: pointer;
+}
+
+.btn-age {
+  color: white;
+  background-color: #017afe;
+  border: none;
+  width: 140px;
+  height: 40px;
+  border-radius: 5px;
+  font-size: medium;
+  cursor: pointer;
+}
+
+.output-div {
+  margin-top: 15px;
+  font-size: x-large;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .main-div {
+    margin: 30px;
+    /* line-height: 45px; */
+    width: 90vw;
+  }
+  .heading-div {
+    font-size: 10vw;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+  .output-div {
+    margin-top: 15px;
+    font-size: large;
+    font-weight: 700;
+  }
+}

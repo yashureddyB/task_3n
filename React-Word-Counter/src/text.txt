@@ -1,0 +1,53 @@
+import { useMemo, useState } from "react";
+
+export default function App() {
+  const [words, setWords] = useState("");
+
+  return (
+    <div className="main-div">
+      <Heading />
+      <Counter words={words} onWords={setWords} />
+      <Output words={words} />
+    </div>
+  );
+}
+
+function Heading() {
+  return <h1 className="heading">Responsive Paragraph Word Counter</h1>;
+}
+
+function Counter({ words, onWords }) {
+  return (
+    <textarea
+      rows={10}
+      cols={70}
+      value={words}
+      onChange={(e) => onWords(e.target.value)}
+      placeholder="Enter the text ..."
+    />
+  );
+}
+
+function Output({ words }) {
+  let modifiedWords = words.replace(/_|[^\w\s]/g, "").trim();
+
+  function useSplitAccordingTo(text, splitter) {
+    let temp = useMemo(
+      () => (text === "" ? 0 : text.split(splitter).length),
+      [text, splitter]
+    );
+    console.log(temp);
+    return temp;
+  }
+
+  let wordCount = useSplitAccordingTo(modifiedWords, /\s+/);
+
+  let charCount = useSplitAccordingTo(words, "");
+
+  return (
+    <div className="output">
+      {wordCount ? <p>Word Count: {wordCount}</p> : null}
+      {charCount ? <p>Character Count: {charCount}</p> : null}
+    </div>
+  );
+}

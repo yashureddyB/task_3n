@@ -1,0 +1,145 @@
+import { useState } from "react";
+
+export default function App() {
+  const [pressedKey, setPressedKey] = useState("");
+
+  console.log(pressedKey);
+  return (
+    <div className="main-div">
+      <HistoryDiv />
+      <InputDiv pressedKey={pressedKey} />
+      <Values pressedKey={pressedKey} onPressedKey={setPressedKey} />
+    </div>
+  );
+}
+
+function HistoryDiv() {
+  return <div className="history-div">Hi</div>;
+}
+
+function InputDiv({ pressedKey }) {
+  return <div className="input-div">{pressedKey}</div>;
+}
+
+function Values({ onPressedKey }) {
+  // prettier-ignore
+  let arr =
+  [7, 8, 9, "\u232B",
+  4, 5, 6, "\u00F7",
+  1, 2, 3, "\u00D7",
+  0, "\u002E", "\u003D","\u002B"];
+
+  return (
+    <div className="values-div">
+      {arr.map((a) => (
+        <Value value={a} key={a} onPressedKey={onPressedKey} />
+      ))}
+    </div>
+  );
+}
+
+function Value({ value, onPressedKey }) {
+  return (
+    <button
+      className={`${value === "\u232B" ? "styleForBackSpace value" : "value"}`}
+      onClick={() => onPressedKey(value)}
+    >
+      {value}
+    </button>
+  );
+}
+
+new Version:
+import { useState } from "react";
+
+export default function App() {
+  const [pressedKey, setPressedKey] = useState("");
+
+  return (
+    <div className="main-div">
+      <HistoryDiv />
+      <InputDiv pressedKey={pressedKey} onPressedKey={setPressedKey} />
+      <ButtonClear onPressedKey={setPressedKey} />
+      <Values pressedKey={pressedKey} onPressedKey={setPressedKey} />
+    </div>
+  );
+}
+
+function HistoryDiv() {
+  return <div className="history-div">History Div</div>;
+}
+
+function InputDiv({ pressedKey, onPressedKey }) {
+  function handleInput(e) {
+    onPressedKey(e.target.value);
+  }
+
+  return (
+    <div className="input-div">
+      <input
+        className="input-box"
+        type="text"
+        value={pressedKey}
+        onChange={(e) => handleInput(e)}
+      />
+    </div>
+  );
+}
+
+function Values({ onPressedKey }) {
+  // prettier-ignore
+  let arr =
+  [7, 8, 9, "\u232B",
+  4, 5, 6, "\u00F7",
+  1, 2, 3, "\u00D7",
+  0, "\u002E", "\u003D","\u002B"];
+
+  return (
+    <div className="values-div">
+      {arr.map((a) => (
+        <Value value={a} key={a} onPressedKey={onPressedKey} />
+      ))}
+    </div>
+  );
+}
+
+function ButtonClear({ onPressedKey }) {
+  return (
+    <button className="clear-btn" onClick={() => onPressedKey("")}>
+      Clear
+    </button>
+  );
+}
+
+function Value({ value, onPressedKey }) {
+  function handleClick(value) {
+    console.log(value);
+    if (value === "=") {
+      try {
+        onPressedKey((curr) => {
+          curr = curr.replace("\u00F7", "/");
+          curr = curr.replace("\u00D7", "*");
+          return curr;
+        });
+        onPressedKey((curr) => eval(`${curr}`).toFixed(2));
+      } catch (err) {
+        onPressedKey(err.message);
+      }
+    } else {
+      value === "\u232B"
+        ? onPressedKey((curr) => curr.slice(0, -1))
+        : onPressedKey((curr) => `${curr}${value}`);
+    }
+  }
+
+  return (
+    <button
+      className={`${
+        value === "\u232B" ? "styleForBackSpace value btns" : "value btns"
+      }`}
+      onClick={() => handleClick(value)}
+    >
+      {value}
+    </button>
+  );
+}
